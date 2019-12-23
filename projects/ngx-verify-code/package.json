@@ -1,0 +1,16 @@
+{
+  "name": "ngx-verify-code",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0",
+    "@angular/core": "^6.0.0"
+  },
+  "description": "基于angular2+实现滑动验证码组件",
+  "keywords": [
+    "angular6",
+    "滑动验证码",
+    "验证码"
+  ],
+  "author": "m310851010",
+  "license": "Apache-2.0"
+}

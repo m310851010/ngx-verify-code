@@ -1,0 +1,28 @@
+<div class="verify-container">
+  <canvas #canvasRef [width]="width" [height]="height"></canvas>
+  <div class="refresh-icon" [class.success]="verifySuccess" (click)="refreshClick()"></div>
+  <div *ngIf="loading" class="loading"></div>
+</div>
+
+<canvas #blockRef
+        [height]="height"
+        class="block"
+        [class.success]="verifySuccess"
+        [style.left]="blockLeft + 'px'"
+        (mousedown)="dragStartHandle($event)"
+        (touchstart)="dragStartHandle($event)">
+</canvas>
+
+<div class="slider-container" [style.width]="width + 'px'"
+     [class.slider-container-active]="isMouseDown"
+     [class.slider-container-success]="verifySuccess"
+     [class.slider-container-fail]="verifySuccess === false">
+  <div class="slider-mask" [style.width]="moveX + 'px'">
+    <div class="slider" [class.success]="verifySuccess" [style.left]="moveX + 'px'"
+         (mousedown)="dragStartHandle($event)"
+         (touchstart)="dragStartHandle($event)">
+      <span class="slider-icon"></span>
+    </div>
+  </div>
+  <span class="slider-text">向右滑动填充拼图</span>
+</div>
