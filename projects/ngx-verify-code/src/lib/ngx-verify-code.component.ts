@@ -36,9 +36,9 @@ export class NgxVerifyCodeComponent implements OnInit, OnDestroy {
    */
   @Output() fail: EventEmitter<void> = new EventEmitter<void>();
   /**
-   * 触发手动刷新事件
+   * 触发刷新事件, 参数为是否为自动刷新, false: 手动刷新
    */
-  @Output() refresh: EventEmitter<void> = new EventEmitter<void>();
+  @Output() refresh: EventEmitter<boolean> = new EventEmitter<boolean>();
   @ViewChild('canvasRef') canvasRef: ElementRef;
   @ViewChild('blockRef') blockRef: ElementRef;
 
@@ -102,15 +102,19 @@ export class NgxVerifyCodeComponent implements OnInit, OnDestroy {
 
   /**
    * 重置
+   * @param autoRefresh 是否是自动刷新
    */
-  reset() {
+  reset(autoRefresh: boolean = true): void {
     this.loading = true;
+    this.verifySuccess = null;
     this.blockWidth = this.width;
     this.blockRef.nativeElement.width = this.width;
     this.canvasCtx.clearRect(0, 0, this.width, this.height);
     this.blockCtx.clearRect(0, 0, this.width, this.height);
     this.blockLeft = 0;
     this.moveX = 0;
+
+    this.refresh.emit(autoRefresh);
 
     this.createImage(evt => {
       this.loading = false;
@@ -183,8 +187,7 @@ export class NgxVerifyCodeComponent implements OnInit, OnDestroy {
     if (this.loading || this.verifySuccess) {
         return ;
     }
-    this.reset();
-    this.refresh.emit();
+    this.reset(false);
   }
 
   /**

@@ -6,17 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  message: string;
   success() {
-    console.log('验证成功');
+    this.message = '验证通过';
   }
 
   fail() {
-    console.log('验证失败');
+    this.message = '验证未通过';
   }
 
-  refresh() {
-    console.log('刷新验证码');
+  refresh(autoRefresh: boolean) {
+    this.message = (autoRefresh ? '自动' : '手动') + ' 刷新验证码';
   }
-
-
 }

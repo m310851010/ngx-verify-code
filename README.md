@@ -32,3 +32,7 @@ imports: [NgxVerifyCodeModule]
 
 </ngx-verify-code>
 ```
+
+### 注意
+
+> 本组件为纯前端验证不能保证安全性 

@@ -11,6 +11,14 @@
     "滑动验证码",
     "验证码"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:m310851010/ngx-verify-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/m310851010/ngx-verify-code/issues"
+  },
+  "homepage": "https://github.com/m310851010/ngx-verify-code#readme",
   "author": "m310851010",
   "license": "Apache-2.0"
 }

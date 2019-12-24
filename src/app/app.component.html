@@ -1,3 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div id="header">
+    <a class="back-github" href="https://github.com/m310851010/ngx-verify-code">返回GitHub</a>
+</div>
 
-<ngx-verify-code (success)="success()" (fail)="fail()" (refresh)="refresh()"></ngx-verify-code>
+<div class="container">
+  <input type="text" value="admin">
+  <input type="password" value="123456">
+  <ngx-verify-code #verify (success)="success()" (fail)="fail()" (refresh)="refresh($event)"></ngx-verify-code>
+  <div class="msg">{{message}}</div>
+  <button (click)="verify.reset(false)">重置验证码</button>
+</div>
