@@ -1,6 +1,6 @@
 ## ngx-verify-code
 
-`angular`滑动验证码组件
+`angular`滑动验证码组件, [演示Demo](https://m310851010.github.io/demos/ngx-verify-code/index.html)
 
 
 ### 安装
